@@ -1,90 +1,98 @@
 
-# WorkTHR Token White Paper
+# WorkTokenStable Token White Paper
+WorkToken (WTK) — Whitepaper
 
-**Version**: 1.0  
-**Published**: June 3, 2025  
-**Token Address**: `0xffc4f8Bde970D87f324AefB584961DDB0fbb4F00`  
-**Chain**: Binance Smart Chain (BSC)  
-**Ticker**: `WorkTHR`
+**Overview**
 
----
+WorkToken (WTK) is a decentralized BEP-20 token built on the Binance Smart Chain (BSC), designed to facilitate a transparent, community-driven ecosystem with utility in gaming, marketplaces, and smart deals. The WorkToken smart contract is upgradeable using OpenZeppelin’s UUPS proxy pattern, ensuring flexibility and long-term adaptability.
+Vision
 
-## Abstract
+Our vision is to create a token that powers a diverse platform, including games, marketplaces, and decentralized applications, where users can buy, sell, stake, and trade seamlessly, fostering community engagement and value growth. We aim for unifying the price of labour in different regions for different services, products and professions.
 
-**WorkTHR** is a utility token earned through verifiable computational labor. It powers a gamified reward system where users gain tokens by contributing real work via browser-based miners and low-power mining platforms like DuinoCoin. The goal is to democratize mining, encouraging broader participation in decentralized networks.
+**Tokenomics**
 
----
+    Token Name: WorkToken
 
-## Problem Statement
+    Symbol: WTK
 
-Current mining ecosystems often favor users with expensive hardware or technical knowledge. Most tokens lack a tangible tie to user effort, leaving little room for fair contribution-based distribution. There’s a gap in the market for a token that equitably rewards individuals based on actual, measurable work.
+    Network: Binance Smart Chain (BSC)
 
----
+    Decimals: 18
 
-## Solution: WorkTHR
+    Total Supply: Dynamic (minted/burned on buy/sell)
 
-WorkTHR aims to bridge that gap by rewarding users who:
-- Mine via a lightweight web-based miner  
-- Participate in DuinoCoin mining using a JavaScript/HTML5-based interface  
+    Buy Mechanism: Users buy WTK by sending BNB to the contract, which mints tokens based on a dynamic market price.
 
-> *MintMe integration is planned, but not yet live.*
+    Sell Mechanism: Users sell WTK back to the contract, which burns tokens and sends BNB at a discounted sell price.
 
-### Core Features:
-- **Earn-as-you-work** model  
-- **Transparent reward system** via API polling  
-- **Gamification** through upgrades, levels, and achievements  
-- **Integration-ready token** for web platforms  
+    Reserve Address: Holds the BNB backing the token liquidity.
 
----
+    Recycling: Unsold or recycled tokens can be burned to manage supply.
 
-## Tokenomics
+    Upgradeable Contract: Implemented with UUPS proxy to allow future enhancements without losing state.
 
-- **Token Standard**: BEP-20 (Binance Smart Chain)  
-- **Ticker**: WorkTHR  
-- **Total Supply**: 999,999,999  
-- **Decimals**: 18  
-- **Contract Address**: `0xffc4f8Bde970D87f324AefB584961DDB0fbb4F00`  
-- **Chain**: Binance Smart Chain (BSC)  
-- **Issuance Model**: Dynamic, based on verified hashrate  
-- **Initial Distribution**: 0% pre-mine. Earned entirely through work  
-- **Trading**: Available on PancakeSwap (import the contract address)  
+**Smart Contract Architecture
+**
+The WorkToken smart contract includes:
 
----
+    ERC20 Standard Interface: Token balance management, transfers, approvals.
 
-## Use Cases
+    Upgradeable Proxy (UUPS): Separates logic and storage, enabling secure upgrades.
 
-### ✅ Decentralized Work Marketplace
-Workers worldwide can earn WorkTHR through tasks or mining. Employers can pay directly in WorkTHR, standardizing compensation across regions without fiat intermediaries.
+    Dynamic Pricing: Market price calculation based on BNB reserve and total supply plus a small increment for stability.
 
-### ✅ Universal Digital Wage
-WorkTHR functions as a browser-mineable 'digital wage,' empowering underbanked populations to earn income from anywhere.
+    Buy/Sell Functions: Allow users to swap between BNB and WTK with automatic minting and burning.
 
-### ✅ Tokenized Reputation System
-Earnings history becomes a metric for reliability. Freelancers, gamers, or students can use WorkTHR as proof of effort or identity.
+    Owner Controls: Ability to fund, withdraw, and set market price manually if needed.
 
-### ✅ Game-Fi & Edu-Fi Integration
-Reward players and learners with WorkTHR for completing levels, answering questions, or mastering skills — tying intellectual effort to token rewards.
+    Burn from Recycle: Enables burning of recycled tokens to maintain supply balance.
 
----
+**User Interaction Flow
+**
+    Connect Wallet: Users connect with MetaMask or any compatible wallet.
 
-## Technical Architecture
+    Switch Network: The DApp will prompt users to switch to the correct BSC network automatically.
 
-- **Frontend**: HTML5 + JS game/client with interactive dashboard  
-- **Backend**: PHP + MySQL that polls mining stats and distributes WorkTHR  
-- **Token Contract**: BEP-20 Smart Contract on Binance Smart Chain  
+    Check Balances: Displays BNB and WTK balances, plus current market price.
 
----
+    Buy Tokens: Users enter BNB amount and receive WTK minted at market price + 10%.
 
-## Roadmap
+    Sell Tokens: Users approve and sell WTK back at market price - 10%, receiving BNB.
 
-| Phase | Description                            | Status      |
-|-------|----------------------------------------|-------------|
-| 1     | Launch WorkTHR Token, Database Sync    | ✅ Complete |
-| 2     | Integrate Web Miner + DuinoCoin        | ✅ Complete |
-| 3     | RPG-style Game + Item Upgrade System   | 🔄 In Progress |
-| 4     | MintMe Mining Integration              | 🔜 Planned  |
-| 5     | Token Wallet & Transfers               | 🔜 Planned  |
-| 6     | WorkTHR Service Marketplace            | 🔜 Planned  |
+    Fund & Withdraw: Owner can add or withdraw BNB from the reserve to maintain liquidity.
+
+    Burn Recycled Tokens: Maintain healthy tokenomics by burning tokens from recycling.
+
+**Security Considerations
+**
+    The contract follows best practices by using OpenZeppelin’s battle-tested libraries.
+
+    Upgradeability is handled securely with UUPS proxy pattern, allowing controlled contract upgrades.
+
+    Owner functions are permissioned and protected.
+
+    Events emitted on key actions (Buy, Sell, Burn, Withdraw) for transparent auditing.
+
+**Roadmap**
+
+    v1.0: Launch on BSC mainnet with buy/sell and upgradeability.
+
+    v1.1: Add mining and VIP purchase features.
+
+    v1.2: Integration with gaming and marketplace dApps.
+
+
+**Contact & Resources
+**
+    GitHub: https://github.com/yourusername/WorkToken
+
+    Website: https://cc.fee.bg/workth/
+
+    Community: YT/TikTok/FB/X
+
+**License**
+
+This project is open-source under the GPL-3 License.
 
 ---
 
@@ -98,7 +106,7 @@ Currently governed by the CfCbazar team. A DAO-style governance system may be in
 
 - **Founder**: CfCbazar  
 - **Development**: Full-stack PHP/JS + HTML5 integration  
-- **Smart Contract Advisor**: MintMe deployment & audit support  
+- **Smart Contract Advisor**: Solidity with remix.ethereum.org 
 
 ---
 
