@@ -8,8 +8,8 @@ This is the official repository for our token ecosystem, featuring:
 ---
 Its now possible to **buy & sell** WorkTokens on https://cc.free.bg/workth/
 
-WorkToken (WTK) — Whitepaper
-Overview
+**WorkToken (WTK) — Whitepaper
+Overview**
 
 WorkToken (WTK) is a decentralized BEP-20 token built on the Binance Smart Chain (BSC), designed to facilitate a transparent, community-driven ecosystem with utility in gaming, marketplaces, and smart deals. The WorkToken smart contract is upgradeable using OpenZeppelin’s UUPS proxy pattern, ensuring flexibility and long-term adaptability.
 Vision
@@ -37,8 +37,8 @@ Tokenomics
 
     Upgradeable Contract: Implemented with UUPS proxy to allow future enhancements without losing state.
 
-Smart Contract Architecture
-
+**Smart Contract Architecture
+**
 The WorkToken smart contract includes:
 
     ERC20 Standard Interface: Token balance management, transfers, approvals.
@@ -53,8 +53,8 @@ The WorkToken smart contract includes:
 
     Burn from Recycle: Enables burning of recycled tokens to maintain supply balance.
 
-User Interaction Flow
-
+**User Interaction Flow
+**
     Connect Wallet: Users connect with MetaMask or any compatible wallet.
 
     Switch Network: The DApp will prompt users to switch to the correct BSC network automatically.
@@ -69,8 +69,8 @@ User Interaction Flow
 
     Burn Recycled Tokens: Maintain healthy tokenomics by burning tokens from recycling.
 
-Security Considerations
-
+**Security Considerations
+**
     The contract follows best practices by using OpenZeppelin’s battle-tested libraries.
 
     Upgradeability is handled securely with UUPS proxy pattern, allowing controlled contract upgrades.
@@ -79,27 +79,26 @@ Security Considerations
 
     Events emitted on key actions (Buy, Sell, Burn, Withdraw) for transparent auditing.
 
-Roadmap
+**Roadmap**
 
     v1.0: Launch on BSC mainnet with buy/sell and upgradeability.
 
-    v1.1: Add staking and VIP purchase features.
+    v1.1: Add mining and VIP purchase features.
 
     v1.2: Integration with gaming and marketplace dApps.
 
-    v2.0: Cross-chain interoperability and governance features.
 
-Contact & Resources
-
+**Contact & Resources
+**
     GitHub: https://github.com/yourusername/WorkToken
 
     Website: https://yourprojectsite.example
 
     Community: Discord/Telegram links
 
-License
+**License**
 
-This project is open-source under the MIT License.
+This project is open-source under the GPL-3 License.
 
 ---
 
