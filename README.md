@@ -10,8 +10,6 @@ Its now possible to **buy & sell** WorkTokens on https://cc.free.bg/workth/
 
 
   
-Got it! Since this README is meant to serve as the GitHub front page for the CfCbazar + WorkToken system, we can make it more general, welcoming, and overview-focused rather than just an API reference. It should explain the ecosystem, how WTK works, and link to the API and other resources. Here’s a polished version ready for README.md:
-
 # CfCbazar — WorkToken (WTK) Ecosystem
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
