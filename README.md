@@ -9,20 +9,29 @@ This is the official repository for our token ecosystem, featuring:
 Its now possible to **buy & sell** WorkTokens on https://cc.free.bg/workth/
 
 
-# WorkToken (WTK) — Whitepaper
+  
+Got it! Since this README is meant to serve as the GitHub front page for the CfCbazar + WorkToken system, we can make it more general, welcoming, and overview-focused rather than just an API reference. It should explain the ecosystem, how WTK works, and link to the API and other resources. Here’s a polished version ready for README.md:
+
+# CfCbazar — WorkToken (WTK) Ecosystem
+
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
+
+Welcome to **CfCbazar**, the platform where users can earn, use, and interact with **WorkToken (WTK)**, a decentralized BEP-20 token on Binance Smart Chain (BSC). This repository contains documentation, APIs, and tools for integrating CfCbazar and WorkToken into your applications, IoT devices, and web services.
+
+---
 
 ## Overview
 
-WorkToken (WTK) is a decentralized BEP-20 token built on the Binance Smart Chain (BSC), designed to facilitate a transparent, community-driven ecosystem with utility in gaming, marketplaces, and smart deals.  
+**WorkToken (WTK)** powers the CfCbazar ecosystem, which includes:
 
-The WorkToken smart contract is upgradeable using OpenZeppelin’s UUPS proxy pattern, ensuring flexibility and long-term adaptability.  
+- **Games** — Earn tokens while playing.  
+- **Marketplace** — Trade tokens and unlock platform features.  
+- **Platform Credit** — Convert WTK or BNB into internal credits to access premium features.  
 
-**Proxy Contract Address:** `0xecbD4E86EE8583c8681E2eE2644FC778848B237D`  
-(Importable into MetaMask as **WTK**)
+WTK is fully **upgradeable via UUPS proxy** on BSC, ensuring a flexible and community-driven platform.
 
-Our vision is to create a token that powers a diverse platform, including games, marketplaces, and decentralized applications, where users can buy, sell, stake, and trade seamlessly, fostering community engagement and value growth.  
-
-We aim to unify the price of labour across regions and services by using WorkToken and platform credits as a fair medium of exchange.
+- **Proxy Contract Address:** `0xecbD4E86EE8583c8681E2eE2644FC778848B237D`  
+- **Platform Credit Address:** `0xFBd767f6454bCd07c959da2E48fD429531A1323A`  
 
 ---
 
@@ -30,111 +39,103 @@ We aim to unify the price of labour across regions and services by using WorkTok
 
 - **Token Name:** WorkToken  
 - **Symbol:** WTK  
-- **Network:** Binance Smart Chain (BSC)  
 - **Decimals:** 18  
 - **Total Supply:** Dynamic (minted/burned on buy/sell)  
-- **Buy Mechanism:** Users buy WTK by sending BNB to the contract, which mints tokens at a dynamic market price.  
-- **Sell Mechanism:** Users sell WTK back to the contract, which burns tokens and sends BNB at a discounted sell price.  
-- **Reserve Address:** Holds the BNB backing token liquidity.  
-- **Recycling:** Unsold/recycled tokens may be burned to manage supply.  
-- **Upgradeable Contract:** Implemented with UUPS proxy for future enhancements.  
+- **Buy/Sell:** Market-driven minting and burning  
+- **Reserve:** BNB backing liquidity  
+- **Recycling:** Unsold tokens may be burned to manage supply
+
+Platform Credit (internal currency) can **unlock features and games** but is **non-withdrawable**.
 
 ---
 
-## Platform Credit System
+## API & Integration
 
-While WTK is a tradable BEP-20 token, the **CfCbazar platform uses non-withdrawable Platform Credit** as its internal economy.  
+ESP8266 devices and web apps can interact with CfCbazar using the **WorkToken API**:
 
-### Deposit Rules
-- Deposit **BNB** or **WTK** to the platform address:  
-  `0xFBd767f6454bCd07c959da2E48fD429531A1323A`  
+- **Base URL:** `http://cfcbazar.atwebpages.com/api.php`  
+- **Methods:** GET (check tokens), POST (increment tokens)  
+- **Rate-limiting:** 1 increment every 5 seconds  
+- **Tampering prevention:** Only 0.00001 per increment; wrong values reset tokens
 
-- Then visit: [https://cfcbazar.ct.ws/buy.php](https://cfcbazar.ct.ws/buy.php)  
-  Select the deposited coin (BNB or WTK) and press **Check Deposit**.  
+**ESP Example Code:**
 
-- Conversion:  
-  - **1 WorkToken (WTK) → 1 Platform Credit**  
-  - **0.00001 BNB → 1 Platform Credit**  
+```cpp
+#include <ESP8266WiFi.h>
+#include <ESP8266HTTPClient.h>
 
-- **Anti-Double Credit:** Each transaction is checked by its hash to prevent duplicate credits.  
+void sendToken(const char* email) {
+  if (WiFi.status() == WL_CONNECTED) {
+    HTTPClient http;
+    http.begin("http://cfcbazar.atwebpages.com/api.php");
+    http.addHeader("Content-Type", "application/x-www-form-urlencoded");
+    String postData = "email=" + String(email) + "&tokens=0.00001";
+    int httpCode = http.POST(postData);
+    if (httpCode > 0) {
+      Serial.println(http.getString());
+    }
+    http.end();
+  }
+}
 
-### Usage
-- **Platform Credit** can unlock premium features, access games, and participate in CfCbazar’s ecosystem.  
-- It is **not withdrawable** and serves as utility inside the platform.  
+Full API documentation can be found in API.md.
 
----
-
-## Smart Contract Architecture
-
-The WorkToken smart contract includes:
-
-- **ERC20 Standard Interface:** Token balance management, transfers, approvals.  
-- **Upgradeable Proxy (UUPS):** Secure contract upgrade pattern.  
-- **Dynamic Pricing:** Market price calculation based on BNB reserves and supply.  
-- **Buy/Sell Functions:** Automatic minting/burning on swaps.  
-- **Owner Controls:** Fund/withdraw reserves, set manual price.  
-- **Burn From Recycle:** Keeps supply healthy.  
 
 ---
 
-## User Interaction Flow
+User Flow
 
-1. **Connect Wallet** (MetaMask or compatible).  
-2. **Switch Network** to BSC if required.  
-3. **Check Balances** of BNB and WTK.  
-4. **Buy Tokens** at market price (+10%).  
-5. **Sell Tokens** at market price (-10%).  
-6. **Deposit to Platform** by sending WTK/BNB to platform address.  
-7. **Claim Platform Credit** at [buy.php](https://cfcbazar.ct.ws/buy.php).  
-8. **Use Credit** for premium features, games, and marketplace access.  
+1. Connect wallet (MetaMask) to BSC network.
 
----
 
-## Security Considerations
+2. Buy or receive WTK tokens.
 
-- Built with **OpenZeppelin libraries**.  
-- **UUPS Proxy Upgradeability** with safe permissions.  
-- Owner functions restricted and secured.  
-- Events emitted for transparency (Buy, Sell, Burn, Withdraw, Deposit).  
 
----
+3. Deposit WTK or BNB to platform address.
 
-## Roadmap
 
-- **v1.0:** Launch on BSC mainnet with buy/sell + upgradeability.  
-- **v1.1:** Deposit system + credit conversion live.  
-- **v1.2:** Integration with gaming + marketplace dApps.  
-- **v1.3:** Migration fully to CfCbazar main platform (cfcbazar.ct.ws).  
+4. Convert to Platform Credit.
+
+
+5. Use credits for games, marketplace access, or premium features.
+
+
+
 
 ---
 
-## Governance
+Security & Governance
 
-Currently governed by the CfCbazar team. A DAO-style governance may be introduced as the ecosystem matures.  
+Built with OpenZeppelin libraries
 
----
+UUPS Proxy upgradeable smart contract
 
-## Team
+Restricted and secured owner functions
 
-- **Founder:** CfCbazar  
-- **Development:** Full-stack PHP/JS + HTML5 integration  
-- **Smart Contract Advisor:** Solidity with Remix IDE  
+Events emitted for transparency
 
----
+Governance by CfCbazar team; DAO-style governance may come later
 
-## Community & Contact
 
-- **Main Platform:** [https://cfcbazar.ct.ws/](https://cfcbazar.ct.ws/)  
-- **Free Server (temporary):** [https://cc.free.bg/](https://cc.free.bg/)  
-- **Buy WTK:** [https://cc.free.bg/workth/](https://cc.free.bg/workth/)  
-- **GitHub:** [https://github.com/ArakelTheDragon/Tokens](https://github.com/ArakelTheDragon/Tokens)  
-- **Email:** [cfcbazar@gmail.com](mailto:cfcbazar@gmail.com)  
 
 ---
 
-## Disclaimer
+Resources
 
-WorkToken and Platform Credit are **experimental utility tokens**.  
-They should not be treated as financial investments but as tools to access and reward participation within the CfCbazar ecosystem.  
+Main Platform: https://cfcbazar.ct.ws/
+
+Free Server: https://cc.free.bg/
+
+Buy WTK: https://cc.free.bg/workth/
+
+GitHub Repository: https://github.com/ArakelTheDragon/Tokens
+
+Contact: cfcbazar@gmail.com
+
+
 
 ---
+
+Disclaimer
+
+WorkToken and Platform Credit are experimental utility tokens for access and participation in the CfCbazar ecosystem. They are not financial investments.
