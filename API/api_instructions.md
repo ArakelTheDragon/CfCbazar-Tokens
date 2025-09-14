@@ -27,6 +27,10 @@ GET /api.php?email=<user_email>
 ```bash
 curl http://cfc-api.atwebpages.com/api.php?email=cfcbazar@gmail.com
 ```
+#### Email source
+```bash
+email is taken from your registration on cfcbazar.ct.ws with that email.
+```
 
 #### 🔸 Successful Response
 ```json
