@@ -1,164 +1,143 @@
-CfCbazar WorkToken API
+# ⚙️ CfCbazar WorkToken API
 
-This API allows ESP8266 devices and the CfCbazar web platform to track and update WorkTokens for users. It includes rate-limiting, token tampering prevention, and remote synchronization between servers.
-
+The **CfCbazar WorkToken API** enables ESP8266 devices and the CfCbazar web platform to track and update user WorkTokens in real time. It includes built-in rate limiting, tamper prevention, and remote synchronization between distributed servers.
 
 ---
 
-Base URL
+## 🌐 Base URL
 
+```
 http://cfc-api.atwebpages.com/api.php
-
+```
 
 ---
 
-Supported Methods
+## 📡 Supported Methods
 
-1. GET — Retrieve current tokens
+### 1️⃣ `GET` — Retrieve Current Tokens
 
-Fetch the current tokens_earned for a given email.
+Fetch the current `tokens_earned` for a registered user.
 
-Request
-
+#### 🔸 Request Format
+```
 GET /api.php?email=<user_email>
+```
 
-Example
-
+#### 🔸 Example
+```bash
 curl http://cfc-api.atwebpages.com/api.php?email=cfcbazar@gmail.com
+```
 
-Response
-
+#### 🔸 Successful Response
+```json
 {
   "success": true,
   "email": "cfcbazar@gmail.com",
   "tokens_earned": 0.00005
 }
+```
 
-Errors
-
-400 Bad Request – Invalid or missing email
-
-404 Not Found – Email not registered
-
-
+#### 🔸 Error Codes
+| Code | Description                |
+|------|----------------------------|
+| 400  | Invalid or missing email   |
+| 404  | Email not registered       |
 
 ---
 
-2. POST — Update tokens
+### 2️⃣ `POST` — Update Tokens
 
-Update the tokens_earned for a user.
+Update the `tokens_earned` for a user.  
+ESP8266 devices must send exactly `0.00001` tokens every 5 seconds.  
+Any other value will reset the user's token balance to `0`.
 
-ESP devices must always send 0.00001 per request every 5 seconds.
+#### 🔸 Request Parameters
 
-Sending any other value resets the tokens to 0.
+| Parameter | Type   | Description                              |
+|-----------|--------|------------------------------------------|
+| `email`   | string | User email (must exist in `workers` table) |
+| `tokens`  | float  | Tokens to add (must be `0.00001`)         |
 
-
-Request Parameters (POST)
-
-Parameter	Type	Description
-
-email	string	User email (must exist in workers table)
-tokens	float	Tokens to add (ESP must send 0.00001, reset 0)
-
-
-Examples
-
-Normal increment (ESP)
-
+#### 🔸 Normal Increment (ESP)
+```bash
 curl -X POST http://cfc-api.atwebpages.com/api.php \
      -d "email=cfcbazar@gmail.com" \
      -d "tokens=0.00001"
+```
 
-Response
-
+##### Response
+```json
 {
   "success": true,
   "email": "cfcbazar@gmail.com",
   "tokens_delta": 0.00001,
   "timestamp": "2025-08-25 17:40:33"
 }
+```
 
-Reset tokens (e.g., from test API or wrong increment)
-
+#### 🔸 Reset Tokens (Invalid Value)
+```bash
 curl -X POST http://cfc-api.atwebpages.com/api.php \
      -d "email=cfcbazar@gmail.com" \
      -d "tokens=0"
+```
 
-Response
-
+##### Response
+```json
 {
   "success": true,
   "action": "reset",
   "reason": "Invalid token value",
   "email": "cfcbazar@gmail.com"
 }
-
+```
 
 ---
 
-Rate Limiting
+## ⏱️ Rate Limiting
 
-A user can only submit a new 0.00001 increment every 5 seconds.
+Users can only submit a new `0.00001` increment every **5 seconds**.  
+Requests made too quickly will return:
 
-Submitting faster will return:
-
-
+```json
 {
   "success": false,
   "error": "Rate limit: wait 5 seconds"
 }
+```
 
-Uses the last_mine_time field in the workers table to enforce timing.
-
-
-
----
-
-Local Test and Sync
-
-The cfc-api.ct.ws/testapi.php script:
-
-1. Reads tokens_earned from CfCbazar.atwebpages.com.
-
-
-2. Adds them to its own database.
-
-
-3. Resets tokens_earned on CfCbazar.atwebpages.com to 0.
-
-
-
-This ensures ESP increments are not double-counted.
-
+Rate limiting is enforced using the `last_mine_time` field in the `workers` table.
 
 ---
 
-Errors
+## 🔄 Local Test & Sync
 
-HTTP Code	Reason	Description
+The script at `cfc-api.ct.ws/testapi.php` performs:
 
-400	Bad Request	Invalid email or token value
-404	Not Found	User not registered
-429	Rate Limit	ESP tried to send tokens too soon
-405	Method Not Allowed	Only GET and POST are supported
-
-
+1. Reads `tokens_earned` from `CfCbazar.atwebpages.com`
+2. Adds them to its own local database
+3. Resets `tokens_earned` remotely to prevent double-counting
 
 ---
 
-Notes for ESP Implementation
+## ⚠️ Error Reference
 
-Connect to http://cfc-api.atwebpages.com/api.php with POST.
+| HTTP Code | Reason           | Description                          |
+|-----------|------------------|--------------------------------------|
+| 400       | Bad Request      | Invalid email or token value         |
+| 404       | Not Found        | User not registered                  |
+| 429       | Rate Limit       | ESP tried to send tokens too soon    |
+| 405       | Method Not Allowed | Only `GET` and `POST` are supported |
 
-Send 0.00001 tokens every 5 seconds.
-
-If any other value is sent, tokens will be reset.
-
-Check tokens_earned with GET for display or verification.
 ---
 
-Example ESP Request
+## 📲 ESP8266 Integration
 
+ESP devices should connect via `POST` every 5 seconds with `0.00001` tokens.  
+Any deviation will reset the user's token balance.
+
+### 🔧 Example ESP Code
+```cpp
 #include <ESP8266WiFi.h>
 #include <ESP8266HTTPClient.h>
 
@@ -178,3 +157,4 @@ void sendToken(const char* email) {
     http.end();
   }
 }
+```
