@@ -158,6 +158,7 @@ Check tokens_earned with GET for display or verification.
 
 ---
 Example api.php
+[code]
 <?php
 // ----- API.php (CfCbazar.atwebpages.com) -----
 require 'config.php';
@@ -261,6 +262,7 @@ if ($method === 'GET') {
 
 http_response_code(405);
 echo json_encode(['success' => false, 'error' => 'Method not allowed']);
+[/code]
 ---
 
 Example ESP Request
