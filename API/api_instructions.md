@@ -140,7 +140,7 @@ The script at `cfc-api.ct.ws/testapi.php` performs:
 ESP devices should connect via `POST` every 5 seconds with `0.00001` tokens.  
 Any deviation will reset the user's token balance.
 
-### 🔧 Example ESP Code WiFi Extender
+### 🔧 Example ESP Code WiFi Extender replace only email with your registerred email on cfcbazar.ct.ws
 ```cpp
 #include <ESP8266WiFi.h>
 #include <WiFiManager.h>
