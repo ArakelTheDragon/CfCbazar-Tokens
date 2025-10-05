@@ -1,1 +1,77 @@
 This is the api for mining with ESP8266 allowing multiple devices to mine instead of a single device per user like API v1.
+
+## ⚡️ CfCbazar ESP8266 Miner + API
+
+This project enables low-power ESP8266 devices to mine WorkTokens for CfCbazar using a secure, rate-limited API. It combines hardware identity (MAC address) with user credentials to prevent cheating and ensure fair mining across distributed devices.
+
+### 📡 ESP8266 Miner
+
+The ESP8266 miner connects to WiFi and sends a POST request every 5 seconds to the CfCbazar mining API. Each request includes:
+
+- `email`: Registered user account
+- `mac_address`: The device’s real hardware MAC (auto-detected)
+- `tokens`: Fixed value of `0.00001` per mine
+
+The miner is designed to be lightweight, autonomous, and tamper-resistant. MAC-based rate limiting ensures that each physical device can only mine once per cooldown cycle.
+
+### 🔐 Anti-Cheat Design
+
+- **MAC + Email pairing**: Prevents multiple accounts from spoofing the same device
+- **5-second cooldown**: Enforced server-side using `last_mine_time`
+- **Device sync**: Remote tokens and mining timestamps are synced to the CfCbazar dashboard via `testapi.php`
+
+### 🌐 API Overview (`api.php`)
+
+The API supports:
+
+#### `POST /api.php`
+
+Used by ESP8266 miners to submit mining attempts.
+
+**Parameters:**
+
+- `email`: User email
+- `mac_address`: Device MAC
+- `tokens`: Must be `0.00001` to be accepted
+
+**Behavior:**
+
+- If `tokens ≠ 0.00001`, resets `tokens_earned` to `0`
+- If cooldown not met, returns `429 Rate Limit`
+- Updates `tokens_earned`, `last_mine_time`, and device status
+
+#### `GET /api.php?email=...`
+
+Returns current mining status for a user:
+
+```json
+{
+  "success": true,
+  "email": "user@example.com",
+  "tokens_earned": 0.12345,
+  "devices": [
+    {
+      "mac_address": "AA:BB:CC:DD:EE:FF",
+      "last_mine_time": "2025-10-05 16:03:42"
+    }
+  ]
+}
+```
+
+### 🔄 Sync Script (`testapi.php`)
+
+Runs on CfCbazar’s dashboard server to:
+
+- Pull remote tokens and devices
+- Increment local `tokens_earned`
+- Update device `last_mine_time` and `active` status
+- Reset remote tokens after sync
+
+### 🛠️ Requirements
+
+- ESP8266 board (NodeMCU, Wemos D1 Mini, etc.)
+- Arduino IDE with ESP8266 core
+- PHP 7+ with MySQL support
+- MySQL tables: `workers`, `devices`
+
+---
