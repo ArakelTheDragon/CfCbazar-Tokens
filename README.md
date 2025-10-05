@@ -8,6 +8,13 @@ This is the official repository for our token ecosystem, featuring:
 ---
 Its now possible to **buy & sell** WorkTokens on https://cc.free.bg/workth/
 
+Mining is in alpha testing & development by using ESPs to mine WorkTokens directly, normal mining of BNB and swapping it for WorkTokens on cfcbazar.ct.ws/pow/ works ok.
+
+Quick start with alpha ESP mining.
+1. Flash your ESP8266 with ESP8266_Example.ino
+2. Update WiFi credentials and email in the sketch
+3. Deploy api.php to your server
+4. Monitor mining activity via database or make your own dashboard
 
   
 # CfCbazar — WorkToken (WTK) Ecosystem
