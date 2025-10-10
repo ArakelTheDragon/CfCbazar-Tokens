@@ -1,77 +1,44 @@
-This is the api for mining with ESP8266 allowing multiple devices to mine instead of a single device per user like API v1.
+## 📦 CfCbazar Token Mining Platform
 
-## ⚡️ CfCbazar ESP8266 Miner + API
+A lightweight, ESP8266-compatible token mining and management system for CfCbazar, supporting dual-token mining (WorkToken & WorkTHR), rate-limited device tracking, and platform-controlled token distribution.
 
-This project enables low-power ESP8266 devices to mine WorkTokens for CfCbazar using a secure, rate-limited API. It combines hardware identity (MAC address) with user credentials to prevent cheating and ensure fair mining across distributed devices.
+### 🔧 Features
 
-### 📡 ESP8266 Miner
+- ⛏️ **Proof-of-Work Mining API**  
+  ESP8266 devices mine tokens via POST requests with cooldown enforcement and MAC-based tracking.
 
-The ESP8266 miner connects to WiFi and sends a POST request every 5 seconds to the CfCbazar mining API. Each request includes:
+- 🔄 **Dual Token Support**  
+  Users can mine either `WorkToken` or `WorkTHR`, with balances stored separately (`tokens_earned` and `mintme`).
 
-- `email`: Registered user account
-- `mac_address`: The device’s real hardware MAC (auto-detected)
-- `tokens`: Fixed value of `0.00001` per mine
+- 🏦 **Platform Reserve Enforcement**  
+  All mined tokens are deducted from the central platform account (`cfcbazar@gmail.com`). Mining halts if reserves are depleted.
 
-The miner is designed to be lightweight, autonomous, and tamper-resistant. MAC-based rate limiting ensures that each physical device can only mine once per cooldown cycle.
+- 📊 **Dashboard Sync**  
+  `testapi.php` syncs mined tokens from the remote API to the CfCbazar dashboard and resets remote balances.
 
-### 🔐 Anti-Cheat Design
+- 📡 **Device Management**  
+  Tracks active/inactive mining devices with automatic deactivation after inactivity.
 
-- **MAC + Email pairing**: Prevents multiple accounts from spoofing the same device
-- **5-second cooldown**: Enforced server-side using `last_mine_time`
-- **Device sync**: Remote tokens and mining timestamps are synced to the CfCbazar dashboard via `testapi.php`
+- 🔐 **Rate Limiting**  
+  Enforces a 5-second cooldown per device to prevent abuse.
 
-### 🌐 API Overview (`api.php`)
+### 🧪 ESP8266 Integration
 
-The API supports:
+Includes example Arduino sketch to alternate mining `WorkToken` and `WorkTHR` every 5 seconds using HTTPClient.
 
-#### `POST /api.php`
+### 📁 Structure
 
-Used by ESP8266 miners to submit mining attempts.
+- `api.php` – Main mining API (remote)
+- `testapi.php` – Sync script for CfCbazar dashboard
+- `d.php` – User dashboard with token stats and wallet management
+- `reusable2.php` – Browser-based RPC dashboard using ethers.js
+- `config.php` – Database connection
+- `devices` table – Tracks mining activity per MAC address
+- `workers` table – Stores token balances and wallet addresses
 
-**Parameters:**
+### 🌐 Live API
 
-- `email`: User email
-- `mac_address`: Device MAC
-- `tokens`: Must be `0.00001` to be accepted
-
-**Behavior:**
-
-- If `tokens ≠ 0.00001`, resets `tokens_earned` to `0`
-- If cooldown not met, returns `429 Rate Limit`
-- Updates `tokens_earned`, `last_mine_time`, and device status
-
-#### `GET /api.php?email=...`
-
-Returns current mining status for a user:
-
-```json
-{
-  "success": true,
-  "email": "user@example.com",
-  "tokens_earned": 0.12345,
-  "devices": [
-    {
-      "mac_address": "AA:BB:CC:DD:EE:FF",
-      "last_mine_time": "2025-10-05 16:03:42"
-    }
-  ]
-}
-```
-
-### 🔄 Sync Script (`testapi.php`)
-
-Runs on CfCbazar’s dashboard server to:
-
-- Pull remote tokens and devices
-- Increment local `tokens_earned`
-- Update device `last_mine_time` and `active` status
-- Reset remote tokens after sync
-
-### 🛠️ Requirements
-
-- ESP8266 board (NodeMCU, Wemos D1 Mini, etc.)
-- Arduino IDE with ESP8266 core
-- PHP 7+ with MySQL support
-- MySQL tables: `workers`, `devices`
+- `http://cfc-api.atwebpages.com/api.php` – Remote mining endpoint
+- `http://cfcbazar.ct.ws/d.php` – Dashboard interface & registration
 
 ---
