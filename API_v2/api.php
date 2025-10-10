@@ -1,6 +1,5 @@
 <?php
-// api hosted at cfc-api.atwebpages.com/api.php
-require 'config.php'; // server file containing database connection and login
+require 'config.php';
 header('Content-Type: application/json');
 
 function is_valid_email($email) {
@@ -14,9 +13,10 @@ function is_valid_mac($mac) {
 $method = $_SERVER['REQUEST_METHOD'];
 
 if ($method === 'POST') {
-    $email  = $_POST['email'] ?? '';
-    $tokens = $_POST['tokens'] ?? null;
-    $mac    = $_POST['mac_address'] ?? '';
+    $email      = $_POST['email'] ?? '';
+    $tokens     = $_POST['tokens'] ?? null;
+    $mac        = $_POST['mac_address'] ?? '';
+    $token_type = $_POST['token_type'] ?? 'WorkToken'; // default to WorkToken
 
     if (!is_valid_email($email) || !is_numeric($tokens)) {
         http_response_code(400);
@@ -26,13 +26,27 @@ if ($method === 'POST') {
 
     $tokens = floatval($tokens);
 
-    // Reset tokens if value is not exactly 0.00001
+    // Handle sync-trigger reset from testapi.php
+    if ($mac === 'sync-trigger' && $tokens === 0.12345) {
+        $stmt = $conn->prepare("UPDATE workers SET tokens_earned = 0, mintme = 0 WHERE email = ?");
+        $stmt->bind_param("s", $email);
+        $ok = $stmt->execute();
+        $stmt->close();
+        echo json_encode([
+            'success' => $ok,
+            'action'  => 'reset',
+            'reason'  => 'Sync-trigger reset',
+            'email'   => $email
+        ]);
+        exit;
+    }
+
+    // Reject invalid mining amounts
     if ($tokens !== 0.00001) {
         $stmt = $conn->prepare("UPDATE workers SET tokens_earned = 0 WHERE email = ?");
         $stmt->bind_param("s", $email);
         $ok = $stmt->execute();
         $stmt->close();
-
         echo json_encode([
             'success' => $ok,
             'action'  => 'reset',
@@ -42,7 +56,7 @@ if ($method === 'POST') {
         exit;
     }
 
-    // Enforce cooldown using devices table
+    // Enforce cooldown
     if (is_valid_mac($mac)) {
         $stmt = $conn->prepare("SELECT last_mine_time FROM devices WHERE email = ? AND mac_address = ?");
         $stmt->bind_param("ss", $email, $mac);
@@ -57,7 +71,6 @@ if ($method === 'POST') {
             exit;
         }
 
-        // Update or insert device record
         $stmt = $conn->prepare("
             INSERT INTO devices (email, mac_address, last_mine_time, active)
             VALUES (?, ?, NOW(), 1)
@@ -68,21 +81,51 @@ if ($method === 'POST') {
         $stmt->close();
     }
 
-    // Update tokens_earned and last_mine_time in workers
-    $stmt = $conn->prepare("
-        UPDATE workers
-           SET tokens_earned = tokens_earned + ?,
-               last_mine_time = NOW()
-         WHERE email = ?
-    ");
-    $stmt->bind_param("ds", $tokens, $email);
-    $ok = $stmt->execute();
+    // Determine field
+    $field = ($token_type === 'WorkTHR') ? 'mintme' : 'tokens_earned';
+
+    // Check cfcbazar@gmail.com balance
+    $stmt = $conn->prepare("SELECT $field FROM workers WHERE email = 'cfcbazar@gmail.com'");
+    $stmt->execute();
+    $stmt->bind_result($platform_balance);
+    $stmt->fetch();
     $stmt->close();
 
+    $platform_balance = $platform_balance === null ? 0.0 : floatval($platform_balance);
+    if ($platform_balance < $tokens) {
+        http_response_code(403);
+        echo json_encode([
+            'success' => false,
+            'error' => 'Mining disabled: platform has no tokens left. Try again later.',
+            'token_type' => $token_type,
+            'platform_balance' => $platform_balance
+        ]);
+        exit;
+    }
+
+    // Begin transaction
+    $conn->begin_transaction();
+
+    // Deduct from platform
+    $stmt = $conn->prepare("UPDATE workers SET $field = $field - ? WHERE email = 'cfcbazar@gmail.com'");
+    $stmt->bind_param("d", $tokens);
+    $stmt->execute();
+    $stmt->close();
+
+    // Credit user
+    $stmt = $conn->prepare("UPDATE workers SET $field = $field + ?, last_mine_time = NOW() WHERE email = ?");
+    $stmt->bind_param("ds", $tokens, $email);
+    $stmt->execute();
+    $stmt->close();
+
+    $conn->commit();
+
     echo json_encode([
-        'success'      => $ok,
+        'success'      => true,
         'email'        => $email,
+        'token_type'   => $token_type,
         'tokens_delta' => $tokens,
+        'platform_deducted' => $tokens,
         'timestamp'    => date('Y-m-d H:i:s')
     ]);
     exit;
@@ -96,15 +139,13 @@ if ($method === 'GET') {
         exit;
     }
 
-    // Fetch tokens_earned
-    $stmt = $conn->prepare("SELECT tokens_earned FROM workers WHERE email = ?");
+    $stmt = $conn->prepare("SELECT tokens_earned, mintme FROM workers WHERE email = ?");
     $stmt->bind_param("s", $email);
     $stmt->execute();
-    $stmt->bind_result($tokens);
+    $stmt->bind_result($tokens, $mintme);
     $stmt->fetch();
     $stmt->close();
 
-    // Fetch devices
     $stmt = $conn->prepare("SELECT mac_address, last_mine_time FROM devices WHERE email = ?");
     $stmt->bind_param("s", $email);
     $stmt->execute();
@@ -119,10 +160,11 @@ if ($method === 'GET') {
         'success'       => true,
         'email'         => $email,
         'tokens_earned' => (float)$tokens,
+        'mintme'        => (float)$mintme,
         'devices'       => $devices
     ]);
     exit;
 }
 
 http_response_code(405);
-echo json_encode(['success' => false, 'error' => 'Method not allowed']); 
+echo json_encode(['success' => false, 'error' => 'Method not allowed']);
