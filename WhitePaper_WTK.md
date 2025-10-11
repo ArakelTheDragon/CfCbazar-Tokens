@@ -96,6 +96,23 @@ The WorkToken smart contract includes:
 - **v1.3:** Migration fully to CfCbazar main platform (cfcbazar.ct.ws).  
 
 ---
+## Transitional Use of WorkTHR
+
+While WorkToken (WTK) is designed to unify all previous token variants—including WorkTH, WorkTHR, and legacy WorkToken versions—the CfCbazar platform will continue to support **WorkTHR** as an active utility token for a long time.
+
+### Why WorkTHR Is Still Used
+
+- WorkTHR is already integrated into key platform features.
+- It supports WorkToken-compatible credit conversion and task execution.
+- It enables backward compatibility with existing user wallets and smart contracts.
+
+### Transition Plan
+
+- WorkTHR will remain usable for deposits and platform credit conversion.
+- All new features and documentation will prioritize WorkToken (WTK).
+- A migration guide will be provided for users and developers to convert WorkTHR holdings into WTK.
+
+This phased approach ensures continuity for existing users while aligning the ecosystem toward a unified WorkToken standard.
 
 ## Governance
 
@@ -115,7 +132,8 @@ Currently governed by the CfCbazar team. A DAO-style governance may be introduce
 
 - **Main Platform:** [https://cfcbazar.ct.ws/](https://cfcbazar.ct.ws/)  
 - **Free Server (temporary):** [https://cc.free.bg/](https://cc.free.bg/)  
-- **Buy WTK:** [https://cc.free.bg/workth/](https://cc.free.bg/workth/)  
+- **Buy WTK:** [https://cc.free.bg/workth/](https://cc.free.bg/workth/)
+- **Buy Work THR:** [https://pancakeswap.finance/swap?outputCurrency=0xffc4f8Bde970D87f324AefB584961DDB0fbb4F00](https://pancakeswap.finance/swap?outputCurrency=0xffc4f8Bde970D87f324AefB584961DDB0fbb4F00)
 - **GitHub:** [https://github.com/ArakelTheDragon/Tokens](https://github.com/ArakelTheDragon/Tokens)  
 - **Email:** [cfcbazar@gmail.com](mailto:cfcbazar@gmail.com)  
 
