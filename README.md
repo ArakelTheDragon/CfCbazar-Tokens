@@ -3,7 +3,7 @@
 This is the official repository for our token ecosystem, featuring:
 
 - **WorkTokenStable** on Binance Smart Chain (ERC-20)
-- **WorkTH** on MintMe Blockchain (MINTME)
+- **WorkTHR** on BNB Smart Chain (ERC-20)
 
 ---
 Its now possible to **buy & sell** WorkTokens on https://cc.free.bg/workth/
