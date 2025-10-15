@@ -23,7 +23,7 @@ WorkTHR is a fixed-supply BEP-20 token used for mining rewards, platform credit 
 - **Decimals:** 18  
 - **Total Supply:** 999,999,999 WTHR  
 - **Trading:** [PancakeSwap](https://pancakeswap.finance/swap?inputCurrency=0xffc4f8Bde970D87f324AefB584961DDB0fbb4F00&outputCurrency=BNB)  
-- **Whitepaper:** [`WhitePaper_WTHR.md`](WhitePaper_WTHR.md)
+- **Whitepaper:** [`WhitePaper_WorkTHR.md`](WhitePaper_WorkTHR.md)
 
 ---
 
