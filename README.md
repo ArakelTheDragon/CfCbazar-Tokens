@@ -1,109 +1,48 @@
-# 🪙 Tokens Repository
+# CfCbazar Token Ecosystem
 
-This is the official repository for our token ecosystem, featuring:
-
-- **WorkTokenStable** on Binance Smart Chain (ERC-20)
-- **WorkTHR** on BNB Smart Chain (ERC-20)
-
----
-Its now possible to **buy & sell** WorkTokens on https://cc.free.bg/workth/
-
-Mining is in alpha testing & development by using ESPs to mine WorkTokens directly, normal mining of BNB and swapping it for WorkTokens on cfcbazar.ct.ws/pow/ works ok.
-
-**Quick start with alpha ESP mining**
-1. Flash your ESP8266 with ESP8266_Example.ino
-2. Update WiFi credentials and email in the sketch
-3. Deploy api.php to your server
-4. Monitor mining activity via database or make your own dashboard
-
-  
-# CfCbazar — WorkToken (WTK) Ecosystem
-
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
-
-Welcome to **CfCbazar**, the platform where users can earn, use, and interact with **WorkToken (WTK)**, a decentralized BEP-20 token on Binance Smart Chain (BSC). This repository contains documentation, APIs, and tools for integrating CfCbazar and WorkToken into your applications, IoT devices, and web services.
+This repository contains smart contract metadata, whitepapers, and integration resources for the CfCbazar platform's two core tokens:
 
 ---
 
-## Overview
+## 🪙 WorkToken (WTK)
 
-**WorkToken (WTK)** powers the CfCbazar ecosystem, which includes:
+WorkToken is a dynamic-supply BEP-20 token used for internal credit, storefront access, and platform features. It is minted when users buy and burned (sent to a recycle pool) when sold.
 
-- **Games** — Earn tokens while playing.  
-- **Marketplace** — Trade tokens and unlock platform features.  
-- **Platform Credit** — Convert WTK or BNB into internal credits to access premium features.  
-
-WTK is fully **upgradeable via UUPS proxy** on BSC, ensuring a flexible and community-driven platform.
-
-- **Proxy Contract Address:** `0xecbD4E86EE8583c8681E2eE2644FC778848B237D`  
-- **Platform Credit Address:** `0xFBd767f6454bCd07c959da2E48fD429531A1323A`  
-
----
-
-## Tokenomics
-
-- **Token Name:** WorkToken  
-- **Symbol:** WTK  
+- **Contract:** [`0xecbD4E86EE8583c8681E2eE2644FC778848B237D`](https://bscscan.com/token/0xecbD4E86EE8583c8681E2eE2644FC778848B237D)  
 - **Decimals:** 18  
-- **Total Supply:** Dynamic (minted/burned on buy/sell)  
-- **Buy/Sell:** Market-driven minting and burning  
-- **Reserve:** BNB backing liquidity  
-- **Recycling:** Unsold tokens may be burned to manage supply
-
-Platform Credit (internal currency) can **unlock features and games** but is **non-withdrawable**.
+- **Trading:** [CfCbazar dapp](https://cc.free.bg/workth/)  
+- **Whitepaper:** [`WhitePaper_WTK.md`](WhitePaper_WTK.md)
 
 ---
 
-## API & Integration
+## 🪙 WorkTHR (WTHR)
 
-ESP8266 devices and web apps can interact with CfCbazar using the **WorkToken API**:
+WorkTHR is a fixed-supply BEP-20 token used for mining rewards, platform credit conversion, and external trading.
 
-- **Base URL:** `http://cfcbazar.atwebpages.com/api.php`  
-- **Methods:** GET (check tokens), POST (increment tokens)  
-- **Rate-limiting:** 1 increment every 5 seconds  
-- **Tampering prevention:** Only 0.00001 per increment; wrong values reset tokens
-
-**ESP Example Code:**
-
-```cpp
-#include <ESP8266WiFi.h>
-#include <ESP8266HTTPClient.h>
-
-void sendToken(const char* email) {
-  if (WiFi.status() == WL_CONNECTED) {
-    HTTPClient http;
-    http.begin("http://cfcbazar.atwebpages.com/api.php");
-    http.addHeader("Content-Type", "application/x-www-form-urlencoded");
-    String postData = "email=" + String(email) + "&tokens=0.00001";
-    int httpCode = http.POST(postData);
-    if (httpCode > 0) {
-      Serial.println(http.getString());
-    }
-    http.end();
-  }
-}
-
-Full API documentation can be found in API.md.
-
+- **Contract:** [`0xffc4f8Bde970D87f324AefB584961DDB0fbb4F00`](https://bscscan.com/token/0xffc4f8Bde970D87f324AefB584961DDB0fbb4F00)  
+- **Decimals:** 18  
+- **Total Supply:** 999,999,999 WTHR  
+- **Trading:** [PancakeSwap](https://pancakeswap.finance/swap?inputCurrency=0xffc4f8Bde970D87f324AefB584961DDB0fbb4F00&outputCurrency=BNB)  
+- **Whitepaper:** [`WhitePaper_WTHR.md`](WhitePaper_WTHR.md)
 
 ---
 
-User Flow
+## 📖 Getting Started
 
-1. Connect wallet (MetaMask) to BSC network.
+To understand how CfCbazar works, how to earn or acquire WorkTokens and WorkTHR, and how to use them for platform credit, visit:
 
+👉 [Help Article: How CfCbazar Works](https://cfcbazar.ct.ws/help/how-cfcbazar-works-what-we-provide-and-how-to-get-worktokens-workthr-.php)
 
-2. Buy or receive WTK tokens.
+---
 
+## 🔗 Resources
 
-3. Deposit WTK or BNB to platform address.
-
-
-4. Convert to Platform Credit.
-
-
-5. Use credits for games, marketplace access, or premium features.
-
+- **Website:** [https://cfcbazar.ct.ws](https://cfcbazar.ct.ws)  
+- **Dashboard:** [https://cfcbazar.ct.ws/d.php](https://cfcbazar.ct.ws/d.php)  
+- **GitHub:** [CfCbazar-Tokens](https://github.com/ArakelTheDragon/CfCbazar-Tokens)  
+- **Socials:**  
+  - [@cfcbazargroup](https://x.com/cfcbazargroup)  
+  - [@workthrp](https://x.com/workthrp)
 
 
 
