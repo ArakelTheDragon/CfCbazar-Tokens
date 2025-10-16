@@ -1,0 +1,1 @@
+The miner is used as a proof of work web miner on our website cfcbazar.ct.ws, you mine other coins(you don't need to care what) and get rewarded in WorkTokens(WTK) or WorkTHR for every succesfully accepted share.
