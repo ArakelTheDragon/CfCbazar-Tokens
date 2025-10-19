@@ -50,7 +50,8 @@ To understand how CfCbazar works, how to earn or acquire WorkTokens and WorkTHR,
 - **Socials:**  
   - [x.com/@cfcbazargroup](https://x.com/cfcbazargroup)  
   - [x.com/@workthrp](https://x.com/workthrp)
-  - [YT.com/cfcbazar](https://yt.com/cfcbazar)
+  - [CfCbazar Channel](https://youtube.com/@cfcbazar?si=AXDnlj7sirwDwpdR)
+  - [WorkToken Channel]([https://youtube.com/@cfcbazar?si=AXDnlj7sirwDwpdR](https://youtube.com/@worktoken?si=F1QaXvHyE0rQg_JI))
 
 
 ---
