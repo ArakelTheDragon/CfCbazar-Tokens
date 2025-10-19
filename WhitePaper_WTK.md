@@ -9,7 +9,7 @@ The WorkToken smart contract is upgradeable using OpenZeppelin’s UUPS proxy pa
 **Proxy Contract Address:** `0xecbD4E86EE8583c8681E2eE2644FC778848B237D`  
 (Importable into MetaMask as **WTK**)
 
-Our vision is to create a token that powers a diverse platform, including games, marketplaces, and decentralized applications, where users can buy, sell, stake, and trade seamlessly, fostering community engagement and value growth.  
+Our vision is to create a token that powers a diverse platform, including games, marketplaces, and decentralized applications, where users can buy, sell, stake, and trade seamlessly, fostering community engagement and value growth. The WorkToken aims to unify the price of labour for products, services & professions in different regions so the value of 1 hour of work can always be 1 WorkToken.
 
 We aim to unify the price of labour across regions and services by using WorkToken and platform credits as a fair medium of exchange.
 
