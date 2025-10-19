@@ -32,7 +32,7 @@ We aim to unify the price of labour across regions and services by using WorkTok
 
 ## Platform Credit System
 
-While WTK is a tradable BEP-20 token, the **CfCbazar platform uses non-withdrawable Platform Credit** as its internal economy.  
+While WTK is a tradable BEP-20 token, the **CfCbazar platform uses withdrawable Platform Credit** as its internal economy. You can withdraw your WorkTokens/WTK/WorkTHR or use them on the platform. You can get platform credit by depositing BNB to our platform address 0xFBd767f6454bCd07c959da2E48fD429531A1323A,the BNB is used to fuel the value of the WorkToken(WTK) & WorkTHR on pancakeswap and the smart BNB contract as well.
 
 ### Deposit Rules
 - Deposit **BNB** or **WTK** to the platform address:  
@@ -49,7 +49,7 @@ While WTK is a tradable BEP-20 token, the **CfCbazar platform uses non-withdrawa
 
 ### Usage
 - **Platform Credit** can unlock premium features, access games, and participate in CfCbazar’s ecosystem.  
-- It is **not withdrawable** and serves as utility inside the platform.  
+- It is **withdrawable** and serves as utility inside the platform. You can withdraw your WorkTokens(WTK) & WorkTHR on [https://cfcbazar.ct.ws/w.php](https://cfcbazar.ct.ws/w.php)  
 
 ---
 
@@ -71,7 +71,7 @@ The WorkToken smart contract includes:
 1. **Connect Wallet** (MetaMask or compatible).  
 2. **Switch Network** to BSC if required.  
 3. **Check Balances** of BNB and WTK.  
-4. **Buy Tokens** at market price (+10%).  
+4. **Buy Tokens** at market price (+10%), by entering how much BNB to use for buying WorkTokens(WTK).  
 5. **Sell Tokens** at market price (-10%).  
 6. **Deposit to Platform** by sending WTK/BNB to platform address.  
 7. **Claim Platform Credit** at [buy.php](https://cfcbazar.ct.ws/buy.php).  
