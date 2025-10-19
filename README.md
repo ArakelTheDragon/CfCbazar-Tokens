@@ -48,9 +48,9 @@ To understand how CfCbazar works, how to earn or acquire WorkTokens and WorkTHR,
 - **Web Miner:** [https://cfcbazar.ct.ws/miner/](https://cfcbazar.ct.ws/miner/)
 - **GitHub:** [CfCbazar-Tokens](https://github.com/ArakelTheDragon/CfCbazar-Tokens)  
 - **Socials:**  
-  - [@cfcbazargroup](https://x.com/cfcbazargroup)  
-  - [@workthrp](https://x.com/workthrp)
-
+  - [x.com/@cfcbazargroup](https://x.com/cfcbazargroup)  
+  - [x.com/@workthrp](https://x.com/workthrp)
+  - [YT.com/cfcbazar](https://yt.com/cfcbazar)
 
 
 ---
