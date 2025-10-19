@@ -90,4 +90,4 @@ Contact: cfcbazar@gmail.com
 
 Disclaimer
 
-WorkToken and Platform Credit are experimental utility tokens for access and participation in the CfCbazar ecosystem. They are not financial investments.
+The WorkToken & WorkTHR and the Platform WorkToken & WorkTHR also known as Platform Credit are experimental utility tokens for access and participation in the CfCbazar ecosystem. They are not financial investments.
