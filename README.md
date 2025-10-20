@@ -11,6 +11,8 @@ We’ve submitted WorkTHR for listing on CoinGecko.
 This repository contains smart contract metadata, whitepapers, and integration resources for the CfCbazar platform's two core tokens. The WTK WorkToken also called WorkToken Stable and the WorkTHR WorkToken can both be mined with our [`web miner`](https://cfcbazar.ct.ws/miner/) which mines other coins(you do not need to care what) and all profits from the mining of other coins goes to fuel the exosystem & the trading pools for WTK and WorkTHR on pancakeswap [`https://pancakeswap.finance/swap?inputCurrency=0xecbD4E86EE8583c8681E2eE2644FC778848B237D&outputCurrency=0xffc4f8Bde970D87f324AefB584961DDB0fbb4F00`](https://pancakeswap.finance/swap?inputCurrency=0xecbD4E86EE8583c8681E2eE2644FC778848B237D&outputCurrency=0xffc4f8Bde970D87f324AefB584961DDB0fbb4F00). We are a 0 budget project and we aim to bring real value to the WorkToken by proof of work.
 
 ---
+## Mining
+We have just released a lightweight mining option on [`https://cfcbazar.42web.io/)`](https://cfcbazar.42web.io/) which does not require a registration. Or if you want to use the full ecosystem with smart deals, DIY, music, games and the WorkToken kust visit  [`https://cfcbazar.ct.ws`](https://cfcbazar.ct.ws).
 
 ## 🪙 WorkToken (WTK)
 
