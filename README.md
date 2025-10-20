@@ -12,7 +12,7 @@ This repository contains smart contract metadata, whitepapers, and integration r
 
 ---
 ## Mining
-We have just released a lightweight mining option on [`https://cfcbazar.42web.io/)`](https://cfcbazar.42web.io/) which does not require a registration. Or if you want to use the full ecosystem with smart deals, DIY, music, games and the WorkToken kust visit  [`https://cfcbazar.ct.ws`](https://cfcbazar.ct.ws).
+We have just released a lightweight mining option on [`https://cfcbazar.42web.io/)`](https://cfcbazar.42web.io/) which does not require a registration. Or if you want to use the full ecosystem with smart deals, DIY, music, games and the WorkToken vist visit  [`https://cfcbazar.ct.ws`](https://cfcbazar.ct.ws).
 
 ## 🪙 WorkToken (WTK)
 
