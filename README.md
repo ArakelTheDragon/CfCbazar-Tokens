@@ -14,7 +14,7 @@ This repository contains smart contract metadata, whitepapers, and integration r
 ## Mining
 We have just released a lightweight mining option on [`https://cfcbazar.42web.io/)`](https://cfcbazar.42web.io/) which does not require a registration. Or if you want to use the full ecosystem with smart deals, DIY, music, games and the WorkToken vist visit  [`https://cfcbazar.ct.ws`](https://cfcbazar.ct.ws).
 
-## 🪙 WorkToken (WTK)
+## 🪙 WorkToken (WTK) - verified on bscscan.com
 
 WorkToken is a dynamic-supply BEP-20 token used for internal credit, storefront access, and platform features. It is minted when users buy and burned (sent to a recycle pool) when sold.
 
@@ -25,7 +25,7 @@ WorkToken is a dynamic-supply BEP-20 token used for internal credit, storefront 
 
 ---
 
-## 🪙 WorkTHR (WTHR)
+## 🪙 WorkTHR (WorkTHR) - verified on bscscan.com
 
 WorkTHR is a fixed-supply BEP-20 token used for mining rewards, platform credit conversion, and external trading.
 
