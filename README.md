@@ -80,7 +80,7 @@ Resources
 
 Main Platform: https://cfcbazar.ct.ws/
 
-Other domains: https://cfcbazar.22web.org/, https://cfcbazar.22web.org/, https://cfcbazar.iceiy.com/, https://cfcbazar.42web.io/
+Other domains: https://cfcbazar.22web.org/, https://cfcbazar.iceiy.com/, https://cfcbazar.42web.io/
 
 Free Server: https://cc.free.bg/
 
