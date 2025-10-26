@@ -6,6 +6,14 @@ We’ve submitted WorkTHR for listing on CoinGecko.
 **Request ID:** CL1510250046  
 **GeckoTerminal URL:** [View Pool](https://www.geckoterminal.com/bsc/pools/0x4ecd614c7043c0e5da0287080f7bdde84b3740d9)
 
+# Notice:
+We have implemented a load balancing system on which you will be resirected to one of our servers automatically. Some of the links in the repo may not work until we uodate them
+Servers:
+https://cfcbazar.ct.ws
+https://cfcbazar.42web.io
+https://cfcbazar.22web.org
+https://cfcbazar.iceiy.com
+
 # CfCbazar Token Ecosystem
 
 This repository contains smart contract metadata, whitepapers, and integration resources for the CfCbazar platform's two core tokens. The WTK WorkToken also called WorkToken Stable and the WorkTHR WorkToken can both be mined with our [`web miner`](https://cfcbazar.ct.ws/miner/) which mines other coins(you do not need to care what) and all profits from the mining of other coins goes to fuel the exosystem & the trading pools for WTK and WorkTHR on pancakeswap [`https://pancakeswap.finance/swap?inputCurrency=0xecbD4E86EE8583c8681E2eE2644FC778848B237D&outputCurrency=0xffc4f8Bde970D87f324AefB584961DDB0fbb4F00`](https://pancakeswap.finance/swap?inputCurrency=0xecbD4E86EE8583c8681E2eE2644FC778848B237D&outputCurrency=0xffc4f8Bde970D87f324AefB584961DDB0fbb4F00). We are a 0 budget project and we aim to bring real value to the WorkToken by proof of work.
