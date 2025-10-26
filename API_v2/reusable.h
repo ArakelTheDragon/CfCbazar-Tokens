@@ -96,7 +96,7 @@ void maintainSTAConnection() {
 
 /**
  * Fetch token status from CfCbazar API.
- * Prints email and tokens_earned to Serial.
+ * Prints email, WTK (tokens_earned), and WorkTHR (mintme) to Serial.
  */
 void fetchCfCbazarStatus() {
   if (WiFi.status() != WL_CONNECTED) {
@@ -115,17 +115,23 @@ void fetchCfCbazarStatus() {
     Serial.println(payload);
 
     int emailStart = payload.indexOf("\"email\":\"");
-    int tokenStart = payload.indexOf("\"tokens_earned\":");
+    int wtkStart   = payload.indexOf("\"tokens_earned\":");
+    int thrStart   = payload.indexOf("\"mintme\":");
 
-    if (emailStart != -1 && tokenStart != -1) {
+    if (emailStart != -1 && wtkStart != -1 && thrStart != -1) {
       String email = payload.substring(emailStart + 9, payload.indexOf("\"", emailStart + 9));
-      String tokenStr = payload.substring(tokenStart + 16);
-      tokenStr.replace("}", "");
-      tokenStr.trim();
-      double tokens = tokenStr.toDouble();
+
+      String wtkStr = payload.substring(wtkStart + 16, payload.indexOf(",", wtkStart));
+      wtkStr.trim();
+      double wtk = wtkStr.toDouble();
+
+      String thrStr = payload.substring(thrStart + 9, payload.indexOf(",", thrStart));
+      thrStr.trim();
+      double thr = thrStr.toDouble();
 
       Serial.printf("Email: %s\n", email.c_str());
-      Serial.printf("Tokens Earned: %.6f\n", tokens);
+      Serial.printf("WTK (tokens_earned): %.6f\n", wtk);
+      Serial.printf("WorkTHR (mintme): %.6f\n", thr);
     } else {
       Serial.println("Failed to parse CfCbazar JSON.");
     }
@@ -143,15 +149,16 @@ void mineWorkTHR() {
   if (WiFi.status() != WL_CONNECTED) return;
   if (millis() - lastMineTime < mineInterval) return;
 
+  String mac = WiFi.macAddress();  // ✅ Get actual MAC from ESP
+  String body = "email=" + String(minerEmail) +
+                "&tokens=0.00001" +
+                "&mac_address=" + mac +
+                "&token_type=WorkTHR";
+
   WiFiClient client;
   HTTPClient http;
   http.begin(client, "http://cfc-api.atwebpages.com/api.php");
   http.addHeader("Content-Type", "application/x-www-form-urlencoded");
-
-  String body = "email=" + String(minerEmail) +
-                "&tokens=0.00001" +
-                "&mac_address=" + String(minerMAC) +
-                "&token_type=WorkTHR";
 
   int httpCode = http.POST(body);
   String response = http.getString();
