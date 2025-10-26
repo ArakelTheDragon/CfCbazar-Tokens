@@ -20,7 +20,7 @@ This repository contains smart contract metadata, whitepapers, and integration r
 
 ---
 ## Mining
-We have just released a lightweight mining option on [`https://cfcbazar.42web.io/)`](https://cfcbazar.42web.io/) which does not require a registration. Or if you want to use the full ecosystem with smart deals, DIY, music, games and the WorkToken vist visit  [`https://cfcbazar.42web.io`](https://cfcbazar.42web.io).
+We have just released a lightweight mining option on [`https://cfcbazar.42web.io/miner-light/)`](https://cfcbazar.42web.io/mier-light/) which does not require a registration. Or if you want to use the full ecosystem with smart deals, DIY, music, games and the WorkToken vist visit  [`https://cfcbazar.42web.io`](https://cfcbazar.42web.io).
 
 ## 🪙 WorkToken (WTK) - verified on bscscan.com
 
@@ -55,7 +55,8 @@ To understand how CfCbazar works, how to earn or acquire WorkTokens and WorkTHR,
 
 ## 🔗 Resources
 
-- **Website:** [https://cfcbazar.42web.io](https://cfcbazar.42web.io)  
+- **Main Website:** [https://cfcbazar.42web.io](https://cfcbazar.42web.io)
+- **Load balancing servers:** [https://cfcbazar.22web.org](https://cfcbazar.22web.org), [https://cfcbazar.ct.ws](https://cfcbazar.ct.ws/), [https://cfcbazar.iceiy.com](https://cfcbazar.iceiy.com)
 - **Dashboard:** [https://cfcbazar.42web.io/d.php](https://cfcbazar.42web.io/d.php)
 - **Web Miner:** [https://cfcbazar.42web.io/miner/](https://cfcbazar.42web.io/miner/)
 - **GitHub:** [CfCbazar-Tokens](https://github.com/ArakelTheDragon/CfCbazar-Tokens)  
