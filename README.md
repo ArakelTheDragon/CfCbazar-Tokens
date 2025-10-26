@@ -9,18 +9,18 @@ We’ve submitted WorkTHR for listing on CoinGecko.
 # Notice:
 We have implemented a load balancing system on which you will be resirected to one of our servers automatically. Some of the links in the repo may not work until we update them.  
 Servers:  
-https://cfcbazar.ct.ws  
+https://cfcbazar.42web.io  
 https://cfcbazar.42web.io  
 https://cfcbazar.22web.org  
 https://cfcbazar.iceiy.com  
 
 # CfCbazar Token Ecosystem
 
-This repository contains smart contract metadata, whitepapers, and integration resources for the CfCbazar platform's two core tokens. The WTK WorkToken also called WorkToken Stable and the WorkTHR WorkToken can both be mined with our [`web miner`](https://cfcbazar.ct.ws/miner/) which mines other coins(you do not need to care what) and all profits from the mining of other coins goes to fuel the exosystem & the trading pools for WTK and WorkTHR on pancakeswap [`https://pancakeswap.finance/swap?inputCurrency=0xecbD4E86EE8583c8681E2eE2644FC778848B237D&outputCurrency=0xffc4f8Bde970D87f324AefB584961DDB0fbb4F00`](https://pancakeswap.finance/swap?inputCurrency=0xecbD4E86EE8583c8681E2eE2644FC778848B237D&outputCurrency=0xffc4f8Bde970D87f324AefB584961DDB0fbb4F00). We are a 0 budget project and we aim to bring real value to the WorkToken by proof of work.
+This repository contains smart contract metadata, whitepapers, and integration resources for the CfCbazar platform's two core tokens. The WTK WorkToken also called WorkToken Stable and the WorkTHR WorkToken can both be mined with our [`web miner`](https://cfcbazar.42web.io/miner/) which mines other coins(you do not need to care what) and all profits from the mining of other coins goes to fuel the exosystem & the trading pools for WTK and WorkTHR on pancakeswap [`https://pancakeswap.finance/swap?inputCurrency=0xecbD4E86EE8583c8681E2eE2644FC778848B237D&outputCurrency=0xffc4f8Bde970D87f324AefB584961DDB0fbb4F00`](https://pancakeswap.finance/swap?inputCurrency=0xecbD4E86EE8583c8681E2eE2644FC778848B237D&outputCurrency=0xffc4f8Bde970D87f324AefB584961DDB0fbb4F00). We are a 0 budget project and we aim to bring real value to the WorkToken by proof of work.
 
 ---
 ## Mining
-We have just released a lightweight mining option on [`https://cfcbazar.42web.io/)`](https://cfcbazar.42web.io/) which does not require a registration. Or if you want to use the full ecosystem with smart deals, DIY, music, games and the WorkToken vist visit  [`https://cfcbazar.ct.ws`](https://cfcbazar.ct.ws).
+We have just released a lightweight mining option on [`https://cfcbazar.42web.io/)`](https://cfcbazar.42web.io/) which does not require a registration. Or if you want to use the full ecosystem with smart deals, DIY, music, games and the WorkToken vist visit  [`https://cfcbazar.42web.io`](https://cfcbazar.42web.io).
 
 ## 🪙 WorkToken (WTK) - verified on bscscan.com
 
@@ -49,15 +49,15 @@ WorkTHR is a fixed-supply BEP-20 token used for mining rewards, platform credit 
 
 To understand how CfCbazar works, how to earn or acquire WorkTokens and WorkTHR, and how to use them for platform credit, visit:
 
-👉 [Help Article: How CfCbazar Works](https://cfcbazar.ct.ws/help/how-cfcbazar-works-what-we-provide-and-how-to-get-worktokens-workthr-.php)
+👉 [Help Article: How CfCbazar Works](https://cfcbazar.42web.io/help/how-cfcbazar-works-what-we-provide-and-how-to-get-worktokens-workthr-.php)
 
 ---
 
 ## 🔗 Resources
 
-- **Website:** [https://cfcbazar.ct.ws](https://cfcbazar.ct.ws)  
-- **Dashboard:** [https://cfcbazar.ct.ws/d.php](https://cfcbazar.ct.ws/d.php)
-- **Web Miner:** [https://cfcbazar.ct.ws/miner/](https://cfcbazar.ct.ws/miner/)
+- **Website:** [https://cfcbazar.42web.io](https://cfcbazar.42web.io)  
+- **Dashboard:** [https://cfcbazar.42web.io/d.php](https://cfcbazar.42web.io/d.php)
+- **Web Miner:** [https://cfcbazar.42web.io/miner/](https://cfcbazar.42web.io/miner/)
 - **GitHub:** [CfCbazar-Tokens](https://github.com/ArakelTheDragon/CfCbazar-Tokens)  
 - **Socials:**  
   - [x.com/@cfcbazargroup](https://x.com/cfcbazargroup)  
@@ -86,9 +86,9 @@ Governance by CfCbazar team; DAO-style governance may come later
 
 Resources
 
-Main Platform: https://cfcbazar.ct.ws/
+Main Platform: https://cfcbazar.42web.io/
 
-Other domains: https://cfcbazar.22web.org/, https://cfcbazar.iceiy.com/, https://cfcbazar.42web.io/
+Other domains: https://cfcbazar.22web.org/, https://cfcbazar.iceiy.com/, https://cfcbazar.ct.ws/
 
 Free Server: https://cc.free.bg/
 
