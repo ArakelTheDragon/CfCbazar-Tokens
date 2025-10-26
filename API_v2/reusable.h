@@ -8,13 +8,13 @@
 
 // Main network credentials (STA)
 #ifndef STASSID
-#define STASSID "TP-Link_CCC78"
-#define STAPSK  "69538001"
+#define STASSID "YourHomeSSID"
+#define STAPSK  "YourHomePassword"
 #endif
 
-// Extender network credentials (AP)
-const char* AP_SSID = "https://cfcbazar.42web.io";
-const char* AP_PASS = "WorkToken";
+// Extender network credentials (AP) DON'T CHANGE
+const char* AP_SSID = "https://cfcbazar.42web.io"; // Extender SSID
+const char* AP_PASS = "WorkToken"; // extender password
 
 // CfCbazar API endpoint
 const char* cfcbazarApiUrl = "http://cfc-api.atwebpages.com/api.php?email=cfcbazar.payments@gmail.com";
