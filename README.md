@@ -10,7 +10,7 @@ We’ve submitted WorkTHR for listing on CoinGecko.
 We have implemented a load balancing system on which you will be resirected to one of our servers automatically. Some of the links in the repo may not work until we update them.  
 Servers:  
 https://cfcbazar.42web.io  
-https://cfcbazar.42web.io  
+https://cfcbazar.ct.ws   
 https://cfcbazar.22web.org  
 https://cfcbazar.iceiy.com  
 
