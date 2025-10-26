@@ -7,12 +7,12 @@ We’ve submitted WorkTHR for listing on CoinGecko.
 **GeckoTerminal URL:** [View Pool](https://www.geckoterminal.com/bsc/pools/0x4ecd614c7043c0e5da0287080f7bdde84b3740d9)
 
 # Notice:
-We have implemented a load balancing system on which you will be resirected to one of our servers automatically. Some of the links in the repo may not work until we uodate them
-Servers:
-https://cfcbazar.ct.ws
-https://cfcbazar.42web.io
-https://cfcbazar.22web.org
-https://cfcbazar.iceiy.com
+We have implemented a load balancing system on which you will be resirected to one of our servers automatically. Some of the links in the repo may not work until we update them.  
+Servers:  
+https://cfcbazar.ct.ws  
+https://cfcbazar.42web.io  
+https://cfcbazar.22web.org  
+https://cfcbazar.iceiy.com  
 
 # CfCbazar Token Ecosystem
 
