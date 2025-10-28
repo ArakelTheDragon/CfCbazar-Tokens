@@ -4,7 +4,7 @@
 
 We’ve submitted WorkTHR for listing on CoinGecko.  
 **Request ID:** CL1510250046  
-**GeckoTerminal URL:** [View Pool](https://www.geckoterminal.com/bsc/pools/0x4ecd614c7043c0e5da0287080f7bdde84b3740d9)
+**GeckoTerminal URL:** [View Pool](https://www.geckoterminal.com/bsc/pools/0x4ecd614c7043c0e5da0287080f7bdde84b3740d9)  
 **Result:** Despite that our request was denied due to lack of adoption, we will resubmit the request when the popularity of our WorkTHR & WTK grows.
 
 # Notice:
