@@ -8,7 +8,7 @@ We’ve submitted WorkTHR for listing on CoinGecko.
 **Result:** Despite that our request was denied due to lack of adoption, we will resubmit the request when the popularity of our WorkTHR & WTK grows.
 
 # Notice:
-We have implemented a load balancing system on which you will be resirected to one of our servers automatically. Some of the links in the repo may not work until we update them.  
+We have implemented a load balancing system on which you will be redirected to one of our servers automatically. Some of the links in the repo may not work until we update them.  
 Servers:  
 https://cfcbazar.42web.io  
 https://cfcbazar.ct.ws   
