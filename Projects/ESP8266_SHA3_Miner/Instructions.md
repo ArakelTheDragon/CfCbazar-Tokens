@@ -1,0 +1,1 @@
+We have implemented a simple SHA3 hashing scheme with a nonce on an ESP8266. Works but only hashes for up to 4 leading zeores of a message. Normally blockchains networks give you a message and asks for up to 64 leading zeroes.
