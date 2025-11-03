@@ -14,14 +14,14 @@
 // ─────────────────────────────────────────────
 // 🌐 Pool & WiFi Credentials
 // ─────────────────────────────────────────────
-const char* ssid = "TP-Link_CCC78";
-const char* password = "69538001";
+const char* ssid = "YourSSID";
+const char* password = "YourPW";
 
-const char* poolHost = "eu3.solopool.org";
-const int poolPort = 8005;
-const char* minerUsername = "FBd767f6454bCd07c959da2E48fD429531A1323A";
-const char* minerPassword = "x";
-const char* workerId = "esp_miner_01";
+const char* poolHost = "eu3.solopool.org"; // Real mining pool, don't change unless you know what you are doing
+const int poolPort = 8005; // Real port, don't change unless you know what you are doing
+const char* minerUsername = "FBd767f6454bCd07c959da2E48fD429531A1323A"; // Your wallet
+const char* minerPassword = "x"; // Don't change
+const char* workerId = "esp_miner_01"; // Your worker ID
 
 
 // ─────────────────────────────────────────────
@@ -507,3 +507,4 @@ void bitsToTarget(const char* bitsHex, uint8_t* target) {
 }
 
 #endif
+
