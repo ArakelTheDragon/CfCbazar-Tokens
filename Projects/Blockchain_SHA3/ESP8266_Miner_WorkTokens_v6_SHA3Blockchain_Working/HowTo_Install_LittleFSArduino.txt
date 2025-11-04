@@ -1,0 +1,5 @@
+Archive:
+https://github.com/earlephilhower/arduino-esp8266littlefs-plugin/releases
+
+Download the archive and paste into:
+C:\Users\CfCbazar\Documents\Arduino\tools
