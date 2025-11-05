@@ -1,7 +1,7 @@
 We have made a working solo miner with ESP8266. Alpha testing complted and it seems to work. Now we need someone else to run it as well so we can be sure.
 
-***Always use the latest version!***
-**Pool connect format:**
+***Always use the latest version!***  
+**Pool connect format:**  
 
 const char* poolHost = "eu3.solopool.org";
 const int poolPort = 8005;
@@ -21,7 +21,7 @@ void connectToStratumPool(const char* poolHost, int poolPort) {
   }
 }
 
-**Pool login format and read response from pool:**
+**Pool login format and read response from pool:**  
 void sendStratumLogin(const char* minerUsername, const char* minerPassword, const char* workerId) {
   String loginRequest = String("{\"id\": 1, \"method\": \"login\", \"params\": {\"login\": \"") +
                         minerUsername + "\", \"pass\": \"" + minerPassword +
@@ -116,7 +116,7 @@ void sendStratumLogin(const char* minerUsername, const char* minerPassword, cons
   }
 }
 
-**SHA256D hash format:**
+**SHA256D hash format:**  
 // SHA256d: Double SHA256 as used in Bitcoin
 void sha256d(const uint8_t* data, size_t len, uint8_t* outHash) {
   SHA256 sha256;
@@ -149,7 +149,7 @@ void hexToBytes(const char* hex, uint8_t* bytes, size_t len) {
   }
 }
 
-**Submit to pool format:**
+**Submit to pool format:**  
 void submitShare(const String& jobId, const char* nonceHexStr, const String& timeHex, const String& coinbaseHex) {
   String submitRequest = String("{\"id\": 2, \"method\": \"mining.submit\", \"params\": [\"") +
                          workerId + "\", \"" + jobId + "\", \"" + nonceHexStr + "\", \"" +
