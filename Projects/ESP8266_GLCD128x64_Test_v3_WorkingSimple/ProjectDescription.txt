@@ -1,0 +1,55 @@
+Display with datasheet:
+https://www.opendtu.solar/hardware/display/#lcd-display-st7567s-gm12864-59n
+
+Source:
+https://satelit-info.com/phpBB3/viewtopic.php?f=172&t=3338
+
+GPT:
+I'm glad to hear that the code using the **U8g2** library worked for your ST7567S display! The U8g2 library is well-optimized for various graphic displays, making it easier to manage graphics, fonts, and various functionalities without needing to handle low-level commands manually.
+
+### Summary of Your Working Code:
+Here's a breakdown of the important parts of your code:
+
+- **Library Inclusion**: You included the `U8g2lib` and `Wire` libraries, which are essential for handling the display over I2C.
+
+- **Initialization**:
+  ```cpp
+  U8G2_ST7567_ENH_DG128064I_F_SW_I2C u8g2(U8G2_R0, SCL, SDA, U8X8_PIN_NONE);
+  ```
+  This line initializes the display using the U8g2 library with software I2C, specifying the SCL and SDA pins.
+
+- **Setting the I2C Address**:
+  ```cpp
+  u8g2.setI2CAddress(0x3F * 2);
+  ```
+  This sets the I2C address of the display. The display address is often doubled in U8g2.
+
+- **Drawing Text**:
+  ```cpp
+  u8g2.drawStr(0, 10, "Hello World!");
+  ```
+  This draws the string "Hello World!" at the specified position on the display.
+
+- **Sending Buffer**:
+  ```cpp
+  u8g2.sendBuffer();
+  ```
+  Finally, this sends the internal buffer contents to the display to render.
+
+### Next Steps
+If you're looking to expand your project or experiment further, here are a few ideas:
+
+1. **Draw Shapes**: You can use other U8g2 drawing functions to create shapes like rectangles, circles, or lines.
+   ```cpp
+   u8g2.drawBox(0, 20, 128, 30); // Draws a filled rectangle
+   ```
+
+2. **Animation**: Implement simple animations by updating the display in the `loop()` function, using delays to control the timing.
+
+3. **User Input**: If you have buttons or other input methods, you can display different messages or graphics based on user interaction.
+
+4. **Additional Fonts**: Explore various fonts provided by the U8g2 library to change the appearance of your text.
+
+5. **Screensaver or Sleep Mode**: Implement a screensaver that activates after a period of inactivity to save power.
+
+If you have any specific features or improvements you want to implement, feel free to ask!
