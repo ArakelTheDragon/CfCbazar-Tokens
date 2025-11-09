@@ -1,0 +1,7 @@
+The project idea is from here
+https://www.instructables.com/Interface-LCD-Using-NodeMCU/
+
+Connect the VCC to the 5V pin on the arduino. This is the Vin pin.
+
+SDA is D4
+SCL is D3
