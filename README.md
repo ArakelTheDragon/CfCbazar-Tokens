@@ -6,7 +6,8 @@ We’ve submitted WorkTHR for listing on CoinMarketCap.
 **PancakeSwap:** https://pancakeswap.finance/swap?inputCurrency=0xffc4f8Bde970D87f324AefB584961DDB0fbb4F00&outputCurrency=0xecbD4E86EE8583c8681E2eE2644FC778848B237D  
 **Explorer URL:** https://bscscan.com/address/0xffc4f8Bde970D87f324AefB584961DDB0fbb4F00  
 **Site:** cfcbazar.42web.io   
-**Contact:** x.com/workthrp  
+**Contact:** x.com/workthrp
+**Result:** Despite that our request was denied due to lack of adoption, we will resubmit the request when the popularity of our WorkTHR & WTK grows.
 
 ## CoinGecko Listing Verification
 
