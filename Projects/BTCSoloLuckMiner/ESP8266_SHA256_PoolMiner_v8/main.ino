@@ -11,7 +11,7 @@
 
 // Wi-Fi credentials
 const char* ssid     = "TP-Link_CCC7";
-const char* password = "69538001";
+const char* password = "********";
 
 // Mining pool details (MAX on Mining-Dutch)
 const char* pool_url  = "europe.mining-dutch.nl";
